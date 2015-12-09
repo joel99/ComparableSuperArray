@@ -1,5 +1,5 @@
 //skeleton file for class Binary
-
+a
 public class Binary {
 
     private int _decNum;
