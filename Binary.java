@@ -147,6 +147,9 @@ public class Binary implements Comparable{
 	return _decNum - ((Binary)other)._decNum;
     }
 
+    public float decValue(){
+	return (float)_decNum;
+	}
 
     //main method for testing
     public static void main( String[] args ) {
