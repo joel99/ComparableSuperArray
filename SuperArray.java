@@ -50,7 +50,7 @@ public class SuperArray{
 		
     //double capacity of this SuperArray
     private void expand() { 
-	int[] newArr = new int[2 * _data.length];
+	Comparable[] newArr = new Comparable[2 * _data.length];
 	for (int i = 0; i < _lastPos; i++)
 	    newArr[i] = _data[i];
 	_data = newArr;
