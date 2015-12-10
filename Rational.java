@@ -37,10 +37,7 @@ public class Rational implements Comparable {
 	
     //prints rational number with newlines
     public String toString(){
-	return num +
-	    "\n" + "-" +
-	    "\n" + den +
-	    "\n";
+	return num + "/" + den;
     }
 
     
@@ -147,14 +144,8 @@ public class Rational implements Comparable {
 			throw e;
     }
 	
-    //Copied Tile's structure
-    public boolean equals(Object a){
-    	//Check for alias
-    	boolean retval = this == a;
-    	if (!retval)
-    		//Check for same class and then see if difference is 0 -> Equality
-    		retval = a instanceof Rational && this.compareTo((Rational)a) == 0;
-    	return retval;
+    public boolean equals( Object other ) { 
+	return this == other || (other instanceof Comparable && decValue() == ((Comparable)other).decValue());   
     }
 
 }

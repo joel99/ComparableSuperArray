@@ -139,7 +139,7 @@ public class Hexadecimal implements Comparable{
       Object), or if this and other represent equal hexary values
       =============================================*/
     public boolean equals( Object other ) { 
-	return this == other || (other instanceof Hexadecimal && _decNum == ((Hexadecimal)other)._decNum);   
+	return this == other || (other instanceof Comparable && decValue() == ((Comparable)other).decValue());   
     }
 
 

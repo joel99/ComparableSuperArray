@@ -107,10 +107,36 @@ public class SuperArray{
     //return number of meaningful items in _data
     public int size() {return _size;}
 
+	public int linSearch(Comparable c){
+		for (int i = 0; i < _size; i++)
+			if (_data[i].equals(c))
+				return i;
+		return -1;
+	}
+	
+	public boolean isSorted(){
+		for (int i = 0; i < _lastPos; i++)
+			if (_data[i].compareTo(_data[i+1]) > 0)
+				return false;
+		return true;
+	}
+	
+	
     //main method for testing
     public static void main( String[] args ) 
     {
-	//testing for interface over implementation
-	
+		Rational threeHalves = new Rational(3,2);
+		Rational thirty = new Rational(60,2);
+		Binary zero = new Binary();
+		Binary ten = new Binary(10);
+		Hexadecimal eighty = new Hexadecimal("50");
+		Hexadecimal tenH = new Hexadecimal(10);
+		SuperArray test = new SuperArray();
+		test.add(threeHalves);
+		test.add(thirty);
+		test.add(ten);
+		test.add(eighty);
+		test.add(tenH);
+		System.out.println("");
     }
 }

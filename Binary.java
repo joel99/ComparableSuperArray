@@ -133,7 +133,7 @@ public class Binary implements Comparable{
       Object), or if this and other represent equal binary values
       =============================================*/
     public boolean equals( Object other ) { 
-	return this == other || (other instanceof Binary && _decNum == ((Binary)other)._decNum);   
+	return this == other || (other instanceof Comparable && decValue() == ((Comparable)other).decValue());   
     }
 
 
