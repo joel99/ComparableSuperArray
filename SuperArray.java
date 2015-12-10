@@ -133,10 +133,10 @@ public class SuperArray{
 		Hexadecimal tenH = new Hexadecimal(10);
 		SuperArray test = new SuperArray();
 		test.add(threeHalves);
-		test.add(thirty);
 		test.add(ten);
-		test.add(eighty);
 		test.add(tenH);
-		System.out.println("");
+		test.add(thirty);
+		test.add(eighty);
+		System.out.println(test.isSorted());
     }
 }
