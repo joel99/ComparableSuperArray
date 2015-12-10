@@ -14,7 +14,7 @@
  *  ability to print meaningfully
  *****************************/
 
-public class SuperArray implements ListInt {
+public class SuperArray{
 
     //~~~~~INSTANCE VARS~~~~~
     //underlying container, or "core" of this data structure:
@@ -112,18 +112,6 @@ public class SuperArray implements ListInt {
     public static void main( String[] args ) 
     {
 	//testing for interface over implementation
-	ListInt daemon = new SuperArray();
-
-	System.out.println("Printing empty daemon");
-	System.out.println(daemon);
-	for (int i = 0; i < 10; i++){ //error with daemon._data.length
-	    daemon.add(i);
-	}
-	System.out.println("Printing numberified daemon...");
-	System.out.println(daemon);
-	System.out.println("Removing 9th element");
-	daemon.remove(8);
-	System.out.println(daemon);
-	System.out.println(daemon.size());
+	
     }
 }

@@ -157,7 +157,7 @@ public class Hexadecimal implements Comparable{
     }
 
     public float decValue(){
-	return (float)_decNum;
+		return (float)_decNum;
 	}
 
     //main method for testing

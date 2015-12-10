@@ -46,10 +46,13 @@ public class Rational implements Comparable {
     
     //float approximation of rational number
     public float floatValue(){
-	return (float)(num)/(den);
+		return (float)(num)/(den);
 	//Casting has precedence to division.
     }
 
+	public float decValue(){
+		return floatValue();
+	}
     
     //multiplication
     public void multiply (Rational n){
