@@ -132,8 +132,17 @@ public class Rational implements Comparable {
 		if (other == null)
 			throw new NullPointerException();
 		ClassCastException e = new ClassCastException("Can't cast " + other.getClass() + " to a Comparable class.");
-		if (other instanceof Comparable)
-			return (int)(decValue() - ((Comparable)other).decValue());
+		if (other instanceof Comparable){
+			float a = (decValue() - ((Comparable)other).decValue());
+			if (Math.abs(a) < 1 && Math.abs(a) > 0){
+				if (a > 0)
+					return 1;
+				else
+					return -1;
+			}
+			else
+				return (int)a;	
+		}
 		else 
 			throw e;
     }
