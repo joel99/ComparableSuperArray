@@ -1,13 +1,11 @@
-// Team Neighbors - Joel Ye and Jason Mohabir
-// APCS1 pd10
-// HW41 -- In America, the Driver Sits on the Left
-// 2015-12-03
-
+//Joel Ye
+//APCS1 pd10
+//HW45 -- Come Together
+//2015 - 12 - 09
 
 public class Rational implements Comparable {
 
     private int num, den;
-
 
     // CONSTRUCTORS
     // ===========================================
@@ -20,17 +18,13 @@ public class Rational implements Comparable {
     //overloaded constructor: checks for division by 0
     public Rational(int n, int d){
 	this();
-	if (d == 0) {
+	if (d == 0)
 	    System.out.print ("MathError: Division by 0.");
-	}
 	else {
 	    num = n;
 	    den = d;
 	}
     }
-
-
-
 
     // METHODS
     // ===========================================

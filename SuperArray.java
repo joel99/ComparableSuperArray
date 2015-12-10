@@ -1,18 +1,7 @@
-//Joel Ye and Jason Mohabir
+//Joel Ye
 //APCS1 pd10
-//HW42 -- Array of Titanium
-//2015 - 12 - 06
-
-/*****************************
- * SKELETON for
- * class SuperArray --  A wrapper class for an array. 
- * Maintains functionality:
- *  access value at index
- *  overwrite value at index
- * Adds functionality to std Java array:
- *  resizability
- *  ability to print meaningfully
- *****************************/
+//HW45 -- Come Together
+//2015 - 12 - 09
 
 public class SuperArray{
 
