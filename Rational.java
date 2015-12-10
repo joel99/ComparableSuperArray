@@ -134,29 +134,16 @@ public class Rational implements Comparable {
     public int compareTo(Rational a){
 		return num * a.den - den * a.num;
     }
+	
 	// returns diff of Rational and object?
 	//merges equals and compareTo
-	public int compareTo(Object o){
-		boolean retval = this == o;
-		if (! retval){
-			retval = o instanceof Rational;
-			if (retval)
-				return this.compareTo((Rational)o);
-			else
-				retval = o instanceof Integer || o instanceof Float || o instanceof Double;
-			if (retval){
-				double a = this.floatValue() - (Double) o;
-				if (a < 0)
-					return (int)Math.floor(a);
-				else
-					return (int)Math.floor(a) + 1;
-			}
-			else
-				System.out.println(o + " cannot be compared with " + this);
-			return 0;
-		}
-		return 0;
-	}
+	public int compareTo( Object other ) {
+		ClassCastException e = new ClassCastException("Can't cast " + other.getClass() + " to a Comparable class.");
+		if (other instanceof Comparable)
+			return (int)(decValue() - ((Comparable)other).decValue());
+		else 
+			throw e;
+    }
 	
     //Copied Tile's structure
     public boolean equals(Object a){
@@ -166,13 +153,6 @@ public class Rational implements Comparable {
     		//Check for same class and then see if difference is 0 -> Equality
     		retval = a instanceof Rational && this.compareTo((Rational)a) == 0;
     	return retval;
-    }
-
-    public static void main(String[] args){
-
-	Rational z = new Rational(1,2);
-	System.out.println(z.compareTo(.4));
-	
     }
 
 }

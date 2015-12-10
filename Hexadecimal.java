@@ -38,8 +38,8 @@ public class Hexadecimal implements Comparable{
       post: sets _hexNum to input, _decNum to decimal equiv
       =====================================*/
     public Hexadecimal( String s ) {
-	_decNum = hexToDec(s);
-	_hexNum = s;   
+		_decNum = hexToDec(s);
+		_hexNum = s;   
     }
 
 
@@ -109,7 +109,8 @@ public class Hexadecimal implements Comparable{
 		n *= 16;
 		s = s.substring(1);
 	}//gets the value of the first digit in s, multiplies by 16 and adds the value of the 2nd digit and repeats
-	return n;
+	
+	return n / 16;
     }
 
 
@@ -149,61 +150,14 @@ public class Hexadecimal implements Comparable{
       negative integer if this<input, positive integer otherwise
       =============================================*/
     public int compareTo( Object other ) {
-		ClassCastException e = new ClassCastException("Can't cast " + other.getClass() + " to " + this.getClass());
-	if (other instanceof Hexadecimal)
-	    return _decNum - ((Hexadecimal)other)._decNum;
-	else 
-	    throw e;
+		ClassCastException e = new ClassCastException("Can't cast " + other.getClass() + " to a Comparable class.");
+		if (other instanceof Comparable)
+			return (int)(decValue() - ((Comparable)other).decValue());
+		else 
+			throw e;
     }
 
     public float decValue(){
 		return (float)_decNum;
 	}
-
-    //main method for testing
-    public static void main( String[] args ) {
-	System.out.println();
-	System.out.println( "Testing ..." );
-
-	Hexadecimal b1 = new Hexadecimal(17);
-	Hexadecimal b2 = new Hexadecimal(23);
-	Hexadecimal b3 = b1;
-	Hexadecimal b4 = new Hexadecimal(43);
-
-	System.out.println( b1 );
-	System.out.println( b2 );
-	System.out.println( b3 );       
-	System.out.println( b4 );       
-
-	System.out.println("0 in hex: "+decToHex(0));//0
-	System.out.println("1 in hex: "+decToHex(1));//1
-	System.out.println("17 in hex: "+decToHex(17));//11
-	System.out.println("23 in hex: "+decToHex(23));//17
-	System.out.println("43 in hex: "+decToHex(43));//2B
-	System.out.println("617 in hex: "+decToHex(617));//269
-	System.out.println("256 in hex: "+decToHex(256));//100
-	System.out.println("4096 in hex: "+decToHex(4096));//1000
-	System.out.println("1001 in hex: "+decToHex(1001));//3E9
-	System.out.println("400000 in hex: "+decToHex(400000));//61A80
-	System.out.println("1000 in hex: "+decToHex(1000));//3E8
-		
-	System.out.println( "\n==..." );
-	System.out.println( b1 == b2 ); //should be false
-	System.out.println( b1 == b3 ); //should be true
-
-	System.out.println( "\n.equals()..." );
-	System.out.println( b1.equals(b2) ); //should be true
-	System.out.println( b1.equals(b3) ); //should be true
-	System.out.println( b3.equals(b1) ); //should be true
-	System.out.println( b4.equals(b2) ); //should be false
-	System.out.println( b1.equals(b4) ); //should be false
-
-	System.out.println( "\n.compareTo..." );
-	System.out.println( b1.compareTo(b2) ); //should be 0
-	System.out.println( b1.compareTo(b3) ); //should be 0
-	System.out.println( b1.compareTo(b4) ); //should be neg
-	System.out.println( b4.compareTo(b1) ); //should be pos
-	System.out.println( b1.compareTo("hello")); //throws the expected error
-    }//end main()
-
 } //end class

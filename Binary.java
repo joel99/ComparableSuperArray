@@ -104,7 +104,7 @@ public class Binary implements Comparable{
 		n *= 2;
 		s = s.substring(1);
 	}
-	return n;
+	return n / 2;
     }
 
 
@@ -144,45 +144,15 @@ public class Binary implements Comparable{
       negative integer if this<input, positive integer otherwise
       =============================================*/
     public int compareTo( Object other ) {
-	return _decNum - ((Binary)other)._decNum;
+		ClassCastException e = new ClassCastException("Can't cast " + other.getClass() + " to a Comparable class.");
+		if (other instanceof Comparable)
+			return (int)(decValue() - ((Comparable)other).decValue());
+		else 
+			throw e;
     }
 
     public float decValue(){
 		return (float)_decNum;
 	}
-
-    //main method for testing
-    public static void main( String[] args ) {
-	System.out.println();
-	System.out.println( "Testing ..." );
-
-	Binary b1 = new Binary(5);
-	Binary b2 = new Binary(5);
-	Binary b3 = b1;
-	Binary b4 = new Binary(7);
-
-	System.out.println( b1 );
-	System.out.println( b2 );
-	System.out.println( b3 );       
-	System.out.println( b4 );       
-
-	System.out.println( "\n==..." );
-	System.out.println( b1 == b2 ); //should be false
-	System.out.println( b1 == b3 ); //should be true
-
-	System.out.println( "\n.equals()..." );
-	System.out.println( b1.equals(b2) ); //should be true
-	System.out.println( b1.equals(b3) ); //should be true
-	System.out.println( b3.equals(b1) ); //should be true
-	System.out.println( b4.equals(b2) ); //should be false
-	System.out.println( b1.equals(b4) ); //should be false
-
-	System.out.println( "\n.compareTo..." );
-	System.out.println( b1.compareTo(b2) ); //should be 0
-	System.out.println( b1.compareTo(b3) ); //should be 0
-	System.out.println( b1.compareTo(b4) ); //should be neg
-	System.out.println( b4.compareTo(b1) ); //should be pos
-
-    }//end main()
 
 } //end class
