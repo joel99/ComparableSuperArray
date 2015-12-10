@@ -150,6 +150,8 @@ public class Hexadecimal implements Comparable{
       negative integer if this<input, positive integer otherwise
       =============================================*/
     public int compareTo( Object other ) {
+		if (other == null)
+			throw new NullPointerException();
 		ClassCastException e = new ClassCastException("Can't cast " + other.getClass() + " to a Comparable class.");
 		if (other instanceof Comparable)
 			return (int)(decValue() - ((Comparable)other).decValue());

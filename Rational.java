@@ -138,6 +138,8 @@ public class Rational implements Comparable {
 	// returns diff of Rational and object?
 	//merges equals and compareTo
 	public int compareTo( Object other ) {
+		if (other == null)
+			throw new NullPointerException();
 		ClassCastException e = new ClassCastException("Can't cast " + other.getClass() + " to a Comparable class.");
 		if (other instanceof Comparable)
 			return (int)(decValue() - ((Comparable)other).decValue());
