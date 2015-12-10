@@ -18,7 +18,7 @@ public class SuperArray{
 
     //~~~~~INSTANCE VARS~~~~~
     //underlying container, or "core" of this data structure:
-    protected int[] _data;
+    protected Comparable[] _data;
 
     //position of last meaningful value
     protected int _lastPos;
@@ -29,7 +29,7 @@ public class SuperArray{
     //~~~~~METHODS~~~~~
     //default constructor – initializes 10-item array
     public SuperArray() {
-	_data = new int[10];
+	_data = new Comparable[10];
 	_lastPos = -1;
 	_size = 0;
     }
@@ -57,22 +57,22 @@ public class SuperArray{
     }
 	
     //accessor -- return value at specified index
-    public int get( int index ) { return _data[index];}
+    public Comparable get( int index ) { return _data[index];}
 
     //accessor -- return _data length
     public int get_dataLength() {return _data.length;}
 		
     //mutator -- set value at index to newVal, 
     //           return old value at index
-    public int set( int index, int newVal ) { 
-	int temp = _data[index];
+    public Comparable set( int index, Comparable newVal ) { 
+	Comparable temp = _data[index];
 	_data[index] = newVal;
 	return temp;
     }
 
   // ~~~~~~~~~~~~~~ PHASE II ~~~~~~~~~~~~~~
     //adds an item after the last item
-    public void add( int newVal ) {
+    public void add( Comparable newVal ) {
 	if (_size == _data.length)
 		expand();
 	_data[_size] = newVal;
@@ -82,10 +82,9 @@ public class SuperArray{
 
     //inserts an item at index
     //shifts existing elements to the right
-    public void add( int index, int newVal ) {
-	if (index >= _size){
-		//Let's throw an error!
-	}
+    public void add( int index, Comparable newVal ) {
+	if (index >= _size)
+		throw new IndexOutOfBoundsException();
 	if (_size == _data.length)
 		expand();
 	for (int i = _size; i > index + 1; i--){
